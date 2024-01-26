@@ -1,0 +1,294 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    block-size: 100%;
+    overflow: auto;
+    mix-blend-mode: normal;
+    background: linear-gradient(#000000, #0f0546, #000000);
+}
+main {
+    background-color: rgb(0, 0, 0); 
+}
+nav {
+    inline-size: 250px;
+    block-size: 100vh;
+    background-color: #000000;
+    color: #fff;
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: -250px;
+    transition: left 0.3s ease-in-out;
+    mix-blend-mode: normal;
+}
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(20%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
+h1 {
+    color: white;
+    margin: 0px;
+    font-family: Helvetica;
+    animation: zoomInAndFade 3s ease-in-out;
+    display: flex;
+    align-items: center;
+    border: none;
+    margin-top: 500px;
+}
+
+@keyframes zoomInAndFade {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+h2 {
+    color: white;
+    margin: 250px 0;
+    font-family: Helvetica;
+    animation: slideIn 3s ease-in-out;
+    padding: 1px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    line-height: 1.5;
+}
+h2:hover {
+    color: #fdfdfd;
+}
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(20%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes zoomOut {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }
+}
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(20%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.logo {
+    position: relative;
+    color: white;
+    font-size: 10px;
+    font-family: monospace;
+}
+.logos {
+    padding: 35px 35px;
+    text-align: center; 
+    max-inline-size: 100px;
+}
+.logos img {
+    max-inline-size: 35px;
+    block-size: auto;
+    background: transparent;
+    margin: 10%;
+}
+.navbar {
+    inset-inline-start: 0;
+    inset-block-start: 70px; /* Adjust the value to place it near the logos class */
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Open Sans', Arial, sans-serif;
+    position: relative;
+    left: 2%;
+    top: 50%;
+    margin-bottom: 0%;
+    inline-size: 100%;
+    background:transparent;
+    color: #fff;
+    top: 0; /* Position it at the top of the viewport */
+    z-index: 1; /* Ensure it's below the logos */
+}
+nav {
+    inline-size: 263px;
+    block-size: 8vh;
+    background-color: transparent;
+    color: #fff;
+    position: relative;
+    inset-block-start: 0;
+    inset-inline-start: -250px;
+    transition: left 0.3s ease-in-out;
+    mix-blend-mode: normal;
+}
+ul { 
+    margin: 150px auto 0; 
+    padding: 0; 
+    list-style: none; 
+    display: table;
+    inline-size: 600px;
+    text-align: center;
+    position: relative;
+  }
+  li { 
+    display: table-cell; 
+    position: relative; 
+    padding: 15px 0;
+  }
+  a {
+    color: #ffffff;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+  }
+  a:after {    
+    background: none repeat scroll 0 0 transparent;
+    inset-block-end: 0;
+    content: "";
+    display: block;
+    block-size: 2px;
+    inset-inline-start: 50%;
+    position: absolute;
+    background: #21fa19;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    inline-size: 0;
+  }
+  a:hover:after { 
+    inline-size: 100%; 
+    inset-inline-start: 0; 
+  }
+  .content-section {
+    block-size: 100vh;
+    background: transparent;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: -20px;
+}
+  @media screen and (max-inline-size: 600px) {
+      ul {
+          margin-block-start: 40px;
+          inline-size: auto;
+      }
+}
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-block-end: 30px;
+}
+
+.card {
+    inline-size: 100px;
+    block-size: 260px; /* Adjust block size for better spacing */
+    perspective: 1000px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column; /* Stack child elements vertically */
+    align-items: center;
+}
+
+.card-inner {
+    inline-size: 100%;
+    block-size: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.999s;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    inline-size: 100%;
+    block-size: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column; /* Stack child elements vertically */
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.card-front {
+    background-image: url('asset/image2.jpg');
+    background-size: cover;
+    border: 1px solid #ffffff;
+    border-color: #fff;
+    color: #ffffff;
+    transition: box-shadow 0.3s;
+}
+
+.card:hover .card-front {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.card-back {
+    background-color: #ffffff;
+    color: #000000;
+    transform: rotateY(180deg);
+    font: bold 12px/1.4 'Open Sans', arial, sans-serif;
+    padding: 10px;
+}
+
+.button-container {
+    display: flex;
+    gap: 5px; /* Adjust gap for better spacing between buttons */
+    margin-block-start: 10px;
+}
+
+
+h3 {
+    color: white;
+    font: bold 14px/1.4 'Open Sans', arial, sans-serif;
+}
+
+/* Responsive Styles */
+@media screen and (max-inline-size: 600px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        inline-size: 80%; /* Adjust card size for smaller screens */
+        block-size: auto;
+        margin-block-end: 20px;
+    }
+
+    #btn1, #btn2, #btn3 {
+        inline-size: 80%; /* Adjust button width for smaller screens */
+        border-radius: 10px;
+        font: 'open sans';
+    }
+}
